@@ -68,7 +68,7 @@ stopButton.addEventListener('click', stopTimer);
 resetButton.addEventListener('click', resetTimer);
 addButton.addEventListener('click', addTime);
 
-// Display current Stopwatch time in browser tab.
+// Display current Stopwatch time in browser tab
 function updateTimeDisplay() {
     stopwatchDisplay.textContent = formatTime(elapsedTime);
     document.title = formatTime(elapsedTime); // Update the title with the current stopwatch time
