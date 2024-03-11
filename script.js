@@ -3,7 +3,9 @@ let startButton = document.getElementById('start');
 let stopButton = document.getElementById('stop');
 let resetButton = document.getElementById('reset');
 let addButton = document.getElementById('add');
-let timeInput = document.getElementById('timeInput');
+let hoursInput = document.getElementById('hoursInput');
+let minutesInput = document.getElementById('minutesInput');
+let secondsInput = document.getElementById('secondsInput');
 
 let startTime; 
 let elapsedTime = 0; 
@@ -46,12 +48,18 @@ function resetTimer() {
 }
 
 function addTime() {
-  let additionalMinutes = parseInt(timeInput.value);
-  if (!isNaN(additionalMinutes)) {
-    elapsedTime += additionalMinutes * 60; // Convert minutes to seconds
-    updateTimeDisplay();
-    timeInput.value = ''; // Clear the input
-  }
+  let additionalHours = parseInt(hoursInput.value) || 0;
+  let additionalMinutes = parseInt(minutesInput.value) || 0;
+  let additionalSeconds = parseInt(secondsInput.value) || 0;
+  
+  // Convert hours and minutes to seconds and add all to elapsedTime
+  elapsedTime += additionalHours * 3600 + additionalMinutes * 60 + additionalSeconds;
+  updateTimeDisplay();
+
+  // Clear the input fields
+  hoursInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
 }
 
 // Adding the event listeners
